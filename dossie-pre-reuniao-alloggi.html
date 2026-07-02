@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<!--
+  ============================================================================
+  DOSSIÊ PRÉ-REUNIÃO — ALLOGGI
+  Insumo de percepção de valor. Enviar (link) entre o agendamento e a reunião.
+  Objetivo: o lead chegar predisposto, enxergando autoridade e valor da conversa.
+  NÃO é apresentação de produto — é leitura estratégica.
+
+  >>> PREENCHER ANTES DE USAR (procure pela classe "fill" / colchetes [ ]):
+    [ ] Cases reais (2 ou 3): tipo de obra, local, área/vão, economia, prazo, resultado
+    [ ] Números da empresa: nº de projetos, m² calculados, anos de atuação, diferencial
+    [ ] Nome do closer e cargo (Selton)
+    [ ] Data e hora da reunião (ou deixe genérico se for material fixo)
+    [ ] Contato / WhatsApp / Instagram no rodapé
+  Regra: não invente número. Se não tiver o dado, troque o card por um real.
+  ============================================================================
+-->
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Antes da nossa conversa — Alloggi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#EEF1F3;
+    --paper-2:#E4E9EC;
+    --ink:#10293A;
+    --ink-2:#274859;
+    --steel:#3E6E8E;
+    --concrete:#8B98A1;
+    --line:#C2CCD3;
+    --mark:#E2622B;
+    --mark-soft:rgba(226,98,43,.10);
+    --card:#F7F9FA;
+    --maxw:1080px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:"Inter",system-ui,sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
+    background-size:44px 44px;
+    background-position:-1px -1px;
+  }
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;}
+
+  /* dimension-line rail (signature) */
+  .rail{position:fixed;top:0;left:max(16px,calc((100vw - var(--maxw))/2 - 40px));height:100vh;width:1px;background:var(--ink);opacity:.18;}
+  .rail::before,.rail::after{content:"";position:absolute;left:-4px;width:9px;height:1px;background:var(--ink);}
+  .rail::before{top:0;}.rail::after{bottom:0;}
+  @media(max-width:1180px){.rail{display:none;}}
+
+  .mono{font-family:"IBM Plex Mono",monospace;}
+  .eyebrow{font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--steel);font-weight:500;}
+
+  /* fillable placeholder styling */
+  .fill{background:var(--mark-soft);border-bottom:1px dashed var(--mark);padding:0 3px;color:var(--ink);}
+
+  /* ---- HERO ---- */
+  header{padding:72px 0 56px;border-bottom:1px solid var(--line);}
+  .tag{display:inline-flex;align-items:center;gap:10px;margin-bottom:34px;}
+  .tag .dot{width:7px;height:7px;background:var(--mark);border-radius:50%;}
+  h1{
+    font-family:"Archivo",sans-serif;font-weight:800;
+    font-size:clamp(32px,5.4vw,60px);line-height:1.04;letter-spacing:-.015em;
+    margin:0 0 26px;max-width:18ch;
+  }
+  h1 em{font-style:normal;color:var(--steel);}
+  .lede{font-size:clamp(16px,2.1vw,20px);color:var(--ink-2);max-width:60ch;font-weight:400;}
+  .lede strong{color:var(--ink);font-weight:600;}
+
+  /* structural callout */
+  .callout{
+    margin-top:42px;display:flex;align-items:stretch;gap:0;border:1px solid var(--ink);
+    background:var(--card);max-width:560px;
+  }
+  .callout .meta{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.14em;
+    text-transform:uppercase;writing-mode:vertical-rl;transform:rotate(180deg);
+    padding:14px 8px;background:var(--ink);color:var(--paper);display:flex;align-items:center;}
+  .callout .body{padding:20px 24px;}
+  .callout .body b{display:block;font-family:"Archivo",sans-serif;font-weight:700;font-size:18px;margin-bottom:4px;}
+  .callout .body span{font-size:14.5px;color:var(--ink-2);}
+
+  /* ---- SECTION ---- */
+  section{padding:62px 0;border-bottom:1px solid var(--line);}
+  .secnum{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--mark);letter-spacing:.1em;font-weight:600;}
+  h2{font-family:"Archivo",sans-serif;font-weight:700;font-size:clamp(24px,3.6vw,34px);
+    line-height:1.12;letter-spacing:-.01em;margin:10px 0 22px;max-width:24ch;}
+  .secintro{font-size:17px;color:var(--ink-2);max-width:64ch;margin-bottom:34px;}
+
+  /* cost grid */
+  .costs{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);}
+  .cost{background:var(--paper);padding:24px 22px;}
+  .cost .k{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--steel);margin-bottom:10px;}
+  .cost .v{font-family:"Archivo",sans-serif;font-weight:700;font-size:17px;line-height:1.25;}
+
+  /* case cards */
+  .cases{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;}
+  .case{background:var(--card);border:1px solid var(--ink);display:flex;flex-direction:column;}
+  .case .head{padding:18px 20px 14px;border-bottom:1px dashed var(--line);}
+  .case .type{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--steel);}
+  .case .title{font-family:"Archivo",sans-serif;font-weight:700;font-size:19px;margin:6px 0 2px;}
+  .case .loc{font-size:13px;color:var(--concrete);font-family:"IBM Plex Mono",monospace;}
+  .specs{padding:6px 20px 4px;}
+  .spec{display:flex;justify-content:space-between;align-items:baseline;padding:11px 0;border-bottom:1px solid var(--line);}
+  .spec:last-child{border-bottom:0;}
+  .spec .lab{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2);}
+  .spec .num{font-family:"Archivo",sans-serif;font-weight:800;font-size:20px;}
+  .spec .num.eco{color:var(--mark);}
+  .case .foot{padding:14px 20px 18px;font-size:14px;color:var(--ink-2);background:var(--paper-2);margin-top:auto;}
+
+  /* authority stats */
+  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:20px;margin-bottom:30px;}
+  .stat .n{font-family:"Archivo",sans-serif;font-weight:800;font-size:clamp(30px,4.5vw,44px);line-height:1;letter-spacing:-.02em;}
+  .stat .n .u{color:var(--mark);}
+  .stat .l{font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.08em;color:var(--ink-2);margin-top:8px;text-transform:uppercase;}
+
+  /* takeaways */
+  .take{list-style:none;padding:0;margin:0;display:grid;gap:1px;background:var(--line);border:1px solid var(--line);}
+  .take li{background:var(--paper);padding:18px 22px;display:flex;gap:16px;align-items:flex-start;}
+  .take li .i{font-family:"IBM Plex Mono",monospace;color:var(--mark);font-weight:600;font-size:13px;flex-shrink:0;padding-top:2px;}
+  .take li .t{font-size:15.5px;}
+  .take li .t b{font-weight:600;}
+
+  /* close */
+  .close{background:var(--ink);color:var(--paper);border:0;padding:54px 0;}
+  .close .wrap{max-width:760px;}
+  .close .eyebrow{color:#8FB3C9;}
+  .close h2{color:var(--paper);max-width:22ch;}
+  .close p{color:#C7D3DB;font-size:17px;max-width:58ch;}
+  .meeting{display:flex;flex-wrap:wrap;gap:14px;margin-top:28px;}
+  .chip{font-family:"IBM Plex Mono",monospace;font-size:13px;border:1px solid #2E5167;padding:12px 18px;color:var(--paper);background:#15334733;}
+  .chip b{color:var(--mark);}
+
+  footer{padding:30px 0;font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--concrete);letter-spacing:.06em;display:flex;flex-wrap:wrap;gap:8px 22px;justify-content:space-between;}
+
+  :focus-visible{outline:2px solid var(--mark);outline-offset:3px;}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;}}
+</style>
+</head>
+<body>
+<div class="rail" aria-hidden="true"></div>
+
+<header>
+  <div class="wrap">
+    <div class="tag">
+      <span class="dot"></span>
+      <span class="eyebrow">Dossiê pré-reunião · Alloggi · Engenharia Estrutural</span>
+    </div>
+    <h1>Antes da nossa conversa, vale entender o que está <em>realmente em jogo</em> na estrutura dos seus projetos.</h1>
+    <p class="lede">Esta não é uma apresentação de produto. É um <strong>diagnóstico estratégico do seu cenário estrutural</strong> — onde está o seu maior ponto de economia, qual risco passa despercebido, e o que dá para destravar. Você sai da reunião com uma leitura útil <strong>mesmo que não fechemos nada</strong>.</p>
+
+    <div class="callout">
+      <div class="meta">Reunião</div>
+      <div class="body">
+        <b>~<span class="fill">[__]</span> min, direto ao ponto</b>
+        <span>Leitura do seu cenário + onde está a alavanca de economia e prazo na estrutura.</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ====================== 1. O PROBLEMA QUE CUSTA CARO ====================== -->
+<section>
+  <div class="wrap">
+    <span class="secnum">01 — O QUE COSTUMA PASSAR DESPERCEBIDO</span>
+    <h2>O custo estrutural mais caro é o que não aparece na planilha.</h2>
+    <p class="secintro">Na maioria das obras, o gargalo não está no projeto que deu errado — está no que poderia ter sido mais enxuto. Superdimensionamento, retrabalho e desperdício de material somam silenciosamente. Em obras de área maior, esse "invisível" vira centenas de milhares de reais.</p>
+    <div class="costs">
+      <div class="cost"><div class="k">Material</div><div class="v">Aço e concreto superdimensionados "por segurança"</div></div>
+      <div class="cost"><div class="k">Prazo</div><div class="v">Retrabalho de compatibilização que estoura o cronograma</div></div>
+      <div class="cost"><div class="k">Risco</div><div class="v">Detalhes estruturais que só aparecem na obra, não no papel</div></div>
+      <div class="cost"><div class="k">Margem</div><div class="v">Economia que existia no projeto e ninguém capturou</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== 2. CASES / PROVA ====================== -->
+<section>
+  <div class="wrap">
+    <span class="secnum">02 — O QUE A GENTE JÁ ENTREGOU</span>
+    <h2>Onde a engenharia estrutural virou economia real.</h2>
+    <p class="secintro">Números de obras que a Alloggi calculou. <span class="fill">[Trocar pelos cases reais — não use nada que não seja verdadeiro.]</span></p>
+
+    <div class="cases">
+      <!-- CASE 1 -->
+      <article class="case">
+        <div class="head">
+          <div class="type"><span class="fill">[Tipo de obra]</span></div>
+          <div class="title"><span class="fill">[Nome / referência do projeto]</span></div>
+          <div class="loc"><span class="fill">[Cidade / UF]</span></div>
+        </div>
+        <div class="specs">
+          <div class="spec"><span class="lab">Área / Vão</span><span class="num"><span class="fill">[__]</span> m²</span></div>
+          <div class="spec"><span class="lab">Economia</span><span class="num eco">R$ <span class="fill">[__]</span></span></div>
+          <div class="spec"><span class="lab">Prazo</span><span class="num"><span class="fill">[__]</span></span></div>
+        </div>
+        <div class="foot"><span class="fill">[Resultado em 1 frase: o que a solução estrutural destravou.]</span></div>
+      </article>
+
+      <!-- CASE 2 -->
+      <article class="case">
+        <div class="head">
+          <div class="type"><span class="fill">[Tipo de obra]</span></div>
+          <div class="title"><span class="fill">[Nome / referência do projeto]</span></div>
+          <div class="loc"><span class="fill">[Cidade / UF]</span></div>
+        </div>
+        <div class="specs">
+          <div class="spec"><span class="lab">Área / Vão</span><span class="num"><span class="fill">[__]</span> m²</span></div>
+          <div class="spec"><span class="lab">Economia</span><span class="num eco"><span class="fill">[__]</span>%</span></div>
+          <div class="spec"><span class="lab">Prazo</span><span class="num"><span class="fill">[__]</span></span></div>
+        </div>
+        <div class="foot"><span class="fill">[Resultado em 1 frase.]</span></div>
+      </article>
+
+      <!-- CASE 3 (opcional — apague se só tiver 2 cases fortes) -->
+      <article class="case">
+        <div class="head">
+          <div class="type"><span class="fill">[Tipo de obra]</span></div>
+          <div class="title"><span class="fill">[Nome / referência do projeto]</span></div>
+          <div class="loc"><span class="fill">[Cidade / UF]</span></div>
+        </div>
+        <div class="specs">
+          <div class="spec"><span class="lab">Área / Vão</span><span class="num"><span class="fill">[__]</span> m²</span></div>
+          <div class="spec"><span class="lab">Economia</span><span class="num eco">R$ <span class="fill">[__]</span></span></div>
+          <div class="spec"><span class="lab">Prazo</span><span class="num"><span class="fill">[__]</span></span></div>
+        </div>
+        <div class="foot"><span class="fill">[Resultado em 1 frase.]</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== 3. AUTORIDADE ====================== -->
+<section>
+  <div class="wrap">
+    <span class="secnum">03 — QUEM ESTARÁ DO OUTRO LADO</span>
+    <h2>Por que essa conversa vale o seu tempo.</h2>
+    <div class="stats">
+      <div class="stat"><div class="n"><span class="fill">[__]</span><span class="u">+</span></div><div class="l">Projetos estruturais</div></div>
+      <div class="stat"><div class="n"><span class="fill">[__]</span> <span class="u">mil m²</span></div><div class="l">Calculados</div></div>
+      <div class="stat"><div class="n"><span class="fill">[__]</span> <span class="u">anos</span></div><div class="l">De atuação</div></div>
+    </div>
+    <p class="secintro" style="margin-bottom:0">A Alloggi atua a partir de <span class="fill">[Itajaí/SC — hoje um dos maiores polos de construção civil do país]</span>, com foco em <span class="fill">[diferencial técnico: ex. otimização estrutural, compatibilização, atendimento próximo]</span>. Quem conduz a reunião é <span class="fill">[Selton, cargo]</span> — então é conversa de decisor para decisor, técnica e objetiva.</p>
+  </div>
+</section>
+
+<!-- ====================== 4. VALORIZAÇÃO DA REUNIÃO ====================== -->
+<section>
+  <div class="wrap">
+    <span class="secnum">04 — O QUE VOCÊ LEVA DESTA REUNIÃO</span>
+    <h2>Você sai com algo concreto — feche ou não.</h2>
+    <ul class="take">
+      <li><span class="i">A</span><span class="t"><b>Uma leitura do seu cenário estrutural atual</b> — onde está mais exposto a custo e a risco hoje.</span></li>
+      <li><span class="i">B</span><span class="t"><b>Pontos de economia identificados</b> nos projetos que você está tocando agora.</span></li>
+      <li><span class="i">C</span><span class="t"><b>Uma referência clara</b> de como a estrutura pode encurtar prazo e enxugar material no seu tipo de obra.</span></li>
+      <li><span class="i">D</span><span class="t"><b>Zero compromisso de compra.</b> Se fizer sentido seguir, a gente desenha o próximo passo. Se não, você levou um diagnóstico.</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ====================== 5. FECHAMENTO ====================== -->
+<section class="close">
+  <div class="wrap">
+    <span class="eyebrow">Está marcado</span>
+    <h2>Chega com as suas obras em mente — é sobre elas que a gente vai falar.</h2>
+    <p>Quanto mais específico for o seu cenário (o projeto ativo, o gargalo que te incomoda, a obra que vem aí), mais a conversa rende pra você. Reserve <span class="fill">[__]</span> minutos sem corre, num lugar onde dê pra focar.</p>
+    <div class="meeting">
+      <span class="chip"><b>DATA</b> · <span class="fill">[__/__]</span></span>
+      <span class="chip"><b>HORA</b> · <span class="fill">[__:__]</span></span>
+      <span class="chip"><b>COM</b> · <span class="fill">[Selton — cargo]</span></span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap" style="display:flex;flex-wrap:wrap;gap:8px 22px;justify-content:space-between;width:100%">
+    <span>ALLOGGI · ENGENHARIA ESTRUTURAL</span>
+    <span><span class="fill">[@instagram]</span> · <span class="fill">[WhatsApp]</span> · <span class="fill">[site]</span></span>
+  </div>
+</footer>
+
+</body>
+</html>
